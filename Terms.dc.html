@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+@font-face { font-family: 'TT Norms Pro'; src: url('/fonts/tt-norms-pro-regular.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'TT Norms Pro'; src: url('/fonts/tt-norms-pro-semibold.woff2') format('woff2'); font-weight: 600; font-display: swap; }
+html, body { margin: 0; padding: 0; background: #F5F5F5; font-family: 'TT Norms Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+html { scroll-behavior: smooth; }
+@keyframes reveal-up { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+* { font-family: inherit; box-sizing: border-box; }
+a { color: #000; text-decoration: none; }
+a:hover { color: #000; }
+</style>
+</helmet>
+<div style="display:flex; flex-direction:column; background:#F5F5F5; min-height:100vh">
+
+  <nav style="position:sticky; top:0; z-index:50; background:#F5F5F5; padding:20px clamp(20px,6vw,80px); border-bottom:1px solid rgba(0,0,0,0.08)">
+    <div style="max-width:88rem; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:24px">
+      <a href="Halo Landing.dc.html" style="display:flex; align-items:center; gap:10px">
+        <span style="font-size:24px; font-weight:200; letter-spacing:-0.03em; color:#000; font-family:inherit">Stillflow</span>
+      </a>
+      <div style="display:flex; align-items:center; gap:32px; font-size:16px; font-weight:500; color:#374151">
+        <a href="Product.dc.html" style="color:#374151; transition:color 200ms; font-family:inherit" style-hover="color:#000">Product</a>
+        <a href="Use Cases.dc.html" style="color:#374151; transition:color 200ms; font-family:inherit" style-hover="color:#000">Use Cases</a>
+        <a href="About.dc.html" style="color:#374151; transition:color 200ms; font-family:inherit" style-hover="color:#000">About</a>
+      </div>
+      <a href="https://calendly.com/cynthiachenbb/30min" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; background:#0E3B38; color:#fff; font-size:16px; font-weight:500; padding:10px 28px; border-radius:9999px; transition:background-color 200ms" style-hover="background:#155650">Let's Talk</a>
+    </div>
+  </nav>
+
+  <section style="padding:80px 24px 40px; animation:reveal-up linear both; animation-timeline:view(); animation-range:entry 0% cover 30%">
+    <div style="max-width:52rem; margin:0 auto">
+      <h1 style="color:#000; font-size:48px; font-weight:200; line-height:1.15; letter-spacing:-0.03em; margin:0 0 12px; font-family:inherit">Terms of Service</h1>
+      <p style="color:rgba(0,0,0,0.45); font-size:14px; margin:0 0 32px; font-family:'TT Norms Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif">Last updated: [Date]</p>
+      <div style="background:#ECECE9; border-radius:12px; padding:24px; margin:0 0 40px">
+        <p style="color:rgba(0,0,0,0.65); font-size:14px; line-height:1.6; margin:0; font-family:'TT Norms Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif">This is a draft for a pre-launch, waitlist-stage website, not a finished legal document. It has not been reviewed by a lawyer. Before publishing, have it reviewed by qualified legal counsel — especially before Stillflow begins processing customer script content.</p>
+      </div>
+      <p style="color:rgba(0,0,0,0.7); font-size:16px; line-height:1.7; margin:0 0 8px; font-family:'TT Norms Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif">Welcome to Stillflow ("Stillflow," "we," "us," or "our"). These Terms of Service ("Terms") govern your access to and use of the Stillflow website located at [URL] (the "Site"). By accessing or using the Site, you agree to be bound by these Terms.</p>
+
+      <sc-for list="{{ sections }}" as="sec" hint-placeholder-count="11">
+        <div style="padding:32px 0; border-top:1px solid rgba(0,0,0,0.1)">
+          <h3 style="color:#000; font-size:20px; font-weight:500; letter-spacing:-0.01em; margin:0 0 12px; font-family:inherit">{{ sec.title }}</h3>
+          <sc-for list="{{ sec.before }}" as="p" hint-placeholder-count="1">
+            <p style="color:rgba(0,0,0,0.65); font-size:16px; line-height:1.7; margin:0 0 12px; font-family:'TT Norms Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif">{{ p }}</p>
+          </sc-for>
+          <sc-for list="{{ sec.bullets }}" as="b" hint-placeholder-count="1">
+            <div style="display:flex; gap:12px; align-items:flex-start; margin:8px 0">
+              <span style="width:5px; height:5px; border-radius:50%; background:rgba(0,0,0,0.4); margin-top:9px; flex-shrink:0"></span>
+              <span style="color:rgba(0,0,0,0.65); font-size:16px; line-height:1.7; font-family:'TT Norms Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif">{{ b }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <footer style="background:#0E3B38; padding:120px clamp(20px,6vw,80px) 40px; display:flex; flex-direction:column; align-items:center; gap:48px; overflow:hidden; animation:reveal-up linear both; animation-timeline:view(); animation-range:entry 0% cover 30%">
+    <p style="color:#F5F6F4; font-size:36px; font-weight:200; line-height:1.35; letter-spacing:-0.01em; text-align:center; max-width:38rem; margin:0; font-family:inherit">The concept worth developing — found before you write the next thousand.</p>
+    <button type="button" style="position:relative; display:inline-flex; align-items:center; justify-content:center; background:#fff; color:#0E3B38; font-size:16px; font-weight:500; padding:12px 52px; border:none; border-radius:9999px; cursor:pointer; transition:transform 250ms cubic-bezier(0.22,1,0.36,1), box-shadow 250ms cubic-bezier(0.22,1,0.36,1); --arrow-x:0" style-hover="transform:translateY(-2px); box-shadow:0 14px 28px rgba(0,0,0,0.28); --arrow-x:1">
+      <span style="position:relative; z-index:1">Join the waitlist</span>
+      <span style="position:absolute; top:50%; left:calc(8px + var(--arrow-x, 0) * (100% - 52px)); transform:translateY(-50%); display:flex; align-items:center; justify-content:center; background:#0E3B38; border-radius:9999px; width:36px; height:36px; transition:left 350ms cubic-bezier(0.22,1,0.36,1)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px; height:20px; display:block"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+      </span>
+    </button>
+    <div style="width:100%; padding:0 16px; box-sizing:border-box; color:#F5F6F4; font-family:inherit; font-size:21vw; font-weight:200; line-height:0.82; letter-spacing:-0.05em; white-space:nowrap; text-align:center; overflow:hidden">Stillflow</div>
+    <div style="width:100%; max-width:88rem; padding-top:32px; border-top:1px solid rgba(245,246,244,0.15); display:flex; gap:32px; justify-content:center; font-family:'TT Norms Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:14px">
+      <a href="Terms.dc.html" style="color:rgba(245,246,244,0.55); transition:color 200ms" style-hover="color:#F5F6F4">Terms of Service</a>
+      <a href="Privacy.dc.html" style="color:rgba(245,246,244,0.55); transition:color 200ms" style-hover="color:#F5F6F4">Privacy Policy</a>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      sections: [
+        { title: '1. About the Site', before: ["Stillflow is currently in a pre-launch stage. The Site provides information about Stillflow's upcoming product and allows visitors to join a waitlist to be notified when the product becomes available. The Site does not currently offer any live product, service, or API access."], bullets: [] },
+        { title: '2. Waitlist Signup', before: ['By submitting your email address to join the waitlist, you consent to Stillflow contacting you with updates about the product, including its launch. You may unsubscribe at any time using the link provided in any email we send, or by contacting us at [contact email].'], bullets: [] },
+        { title: '3. No Current Product or Service', before: ['Nothing on the Site constitutes an offer to provide any product, service, or API access. Joining the waitlist does not guarantee access to the product when it launches, nor does it create any contractual obligation on the part of Stillflow to provide access on any particular timeline or terms.'], bullets: [] },
+        { title: '4. Intellectual Property', before: ['All content on the Site — including text, graphics, logos, and design elements — is the property of Stillflow or its licensors and is protected by applicable intellectual property laws. You may not copy, reproduce, distribute, or create derivative works from any part of the Site without our prior written permission.'], bullets: [] },
+        { title: '5. Acceptable Use', before: ['You agree not to:'], bullets: ['Use the Site for any unlawful purpose', 'Attempt to gain unauthorized access to the Site or its underlying systems', 'Interfere with or disrupt the operation of the Site', 'Submit false or misleading information when joining the waitlist'] },
+        { title: '6. Third-Party Links', before: ['The Site may contain links to third-party websites. Stillflow is not responsible for the content, accuracy, or practices of any third-party site.'], bullets: [] },
+        { title: '7. Disclaimer of Warranties', before: ['The Site is provided "as is" and "as available," without warranties of any kind, express or implied. Stillflow does not warrant that the Site will be uninterrupted, error-free, or secure.'], bullets: [] },
+        { title: '8. Limitation of Liability', before: ['To the fullest extent permitted by law, Stillflow shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of, or inability to use, the Site.'], bullets: [] },
+        { title: '9. Changes to These Terms', before: ['We may update these Terms from time to time. Material changes will be reflected by updating the "Last updated" date above. Continued use of the Site after changes constitutes acceptance of the revised Terms.'], bullets: [] },
+        { title: '10. Governing Law', before: ['These Terms are governed by the laws of [Jurisdiction — e.g., the State of Delaware, United States], without regard to conflict-of-law principles.'], bullets: [] },
+        { title: '11. Contact', before: ['Questions about these Terms can be directed to [contact email].'], bullets: [] },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
